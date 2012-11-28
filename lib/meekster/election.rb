@@ -1,5 +1,4 @@
 require 'bigdecimal'
-require File.expand_path('../round', __FILE__)
 
 class Meekster::Election
   attr_accessor :ballots, :candidates, :seats

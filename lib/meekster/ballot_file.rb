@@ -1,6 +1,3 @@
-require File.expand_path('ballot', File.dirname(__FILE__))
-require File.expand_path('candidate', File.dirname(__FILE__))
-
 class Meekster::BallotFile
   attr_accessor :candidates, :ballots, :seats
 
