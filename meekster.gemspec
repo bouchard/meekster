@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = Meekster::VERSION
 
   gem.add_development_dependency 'rspec', '~>2.9.0'
-  gem.add_development_dependency 'rake', '~>10.2.2'
+  gem.add_development_dependency 'rake', '~>10.3.1'
 end
