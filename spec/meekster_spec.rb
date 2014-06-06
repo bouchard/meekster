@@ -19,7 +19,7 @@ describe "meekster" do
 
       election.run!
 
-      c1.state.should == :elected
+      expect(c1.state).to eq(:elected)
     end
   end
 
@@ -65,14 +65,14 @@ describe "meekster" do
     end
 
     it "elects the correct candidates" do
-      @chocolate.state.should == :elected
-      @oranges.state.should == :elected
-      @strawberries.state.should == :elected
+      expect(@chocolate.state).to eq(:elected)
+      expect(@oranges.state).to eq(:elected)
+      expect(@strawberries.state).to eq(:elected)
     end
 
     it "rejects the correct candidates" do
-      @pears.state.should == :defeated
-      @sweets.state.should == :defeated
+      expect(@pears.state).to eq(:defeated)
+      expect(@sweets.state).to eq(:defeated)
     end
   end
 
@@ -89,20 +89,20 @@ describe "meekster" do
       end
 
       it "elects the correct candidates" do
-        @election.candidates.find{|c| c.name == 'Castor'}.state.should == :elected
-        @election.candidates.find{|c| c.name == 'Castor'}.votes.should be_within(0.000000001).of(2.000000004)
+        expect(@election.candidates.find{|c| c.name == 'Castor'}.state).to eq(:elected)
+        expect(@election.candidates.find{|c| c.name == 'Castor'}.votes).to be_within(0.000000001).of(2.000000004)
 
-        @election.candidates.find{|c| c.name == 'Helen'}.state.should == :elected
-        @election.candidates.find{|c| c.name == 'Helen'}.votes.should be_within(0.000000001).of(2.000000000)
+        expect(@election.candidates.find{|c| c.name == 'Helen'}.state).to eq(:elected)
+        expect(@election.candidates.find{|c| c.name == 'Helen'}.votes).to be_within(0.000000001).of(2.000000000)
       end
 
       it "rejects the correct candidates" do
-        @election.candidates.find{|c| c.name == 'Pollux'}.state.should == :defeated
+        expect(@election.candidates.find{|c| c.name == 'Pollux'}.state).to eq(:defeated)
       end
 
       it "calculates votes for the rejected candidates correctly" do
-        pending('Need to fix final round')
-        @election.candidates.find{|c| c.name == 'Pollux'}.votes.should be_within(0.000000001).of(0.000000000)
+        skip('Need to fix final round')
+        expect(@election.candidates.find{|c| c.name == 'Pollux'}.votes).to be_within(0.000000001).of(0.000000000)
       end
     end
 
@@ -117,27 +117,27 @@ describe "meekster" do
       end
 
       it "elects the correct candidates" do
-        @election.candidates.find{|c| c.name == 'Nina Baker'}.state.should == :elected
-        @election.candidates.find{|c| c.name == 'Nina Baker'}.votes.should be_within(0.00001).of(1298.307340419)
+        expect(@election.candidates.find{|c| c.name == 'Nina Baker'}.state).to eq(:elected)
+        expect(@election.candidates.find{|c| c.name == 'Nina Baker'}.votes).to be_within(0.00001).of(1298.307340419)
 
-        @election.candidates.find{|c| c.name == 'Philip Braat'}.state.should == :elected
-        @election.candidates.find{|c| c.name == 'Philip Braat'}.votes.should be_within(0.00001).of(1297.105615751)
+        expect(@election.candidates.find{|c| c.name == 'Philip Braat'}.state).to eq(:elected)
+        expect(@election.candidates.find{|c| c.name == 'Philip Braat'}.votes).to be_within(0.00001).of(1297.105615751)
 
-        @election.candidates.find{|c| c.name == 'Craig MacKay'}.state.should == :elected
-        @election.candidates.find{|c| c.name == 'Craig MacKay'}.votes.should be_within(0.00001).of(1280.501790024)
+        expect(@election.candidates.find{|c| c.name == 'Craig MacKay'}.state).to eq(:elected)
+        expect(@election.candidates.find{|c| c.name == 'Craig MacKay'}.votes).to be_within(0.00001).of(1280.501790024)
 
-        @election.candidates.find{|c| c.name == 'Gordon Matheson'}.state.should == :elected
-        @election.candidates.find{|c| c.name == 'Gordon Matheson'}.votes.should be_within(0.00001).of(1325.225745098)
+        expect(@election.candidates.find{|c| c.name == 'Gordon Matheson'}.state).to eq(:elected)
+        expect(@election.candidates.find{|c| c.name == 'Gordon Matheson'}.votes).to be_within(0.00001).of(1325.225745098)
       end
 
       it "rejects the correct candidates" do
         ['Erin Boyle', 'Dave Holladay', 'Akhtar Khan', 'Ann Laird', 'Peter Murray'].each do |name|
-          @election.candidates.find{|c| c.name == name}.state.should == :defeated
+          expect(@election.candidates.find{|c| c.name == name}.state).to eq(:defeated)
         end
       end
 
       it "calculates votes for the rejected candidates correctly" do
-        pending('Need to fix final round')
+        skip('Need to fix final round')
       end
     end
   end

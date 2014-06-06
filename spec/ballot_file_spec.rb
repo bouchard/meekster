@@ -20,8 +20,8 @@ describe Meekster::BallotFile do
       @bf.read!
       candidates = @bf.candidates
 
-      candidates.length.should == 3
-      candidates.map{|c| c.name}.should == ['Castor', 'Pollux', 'Helen']
+      expect(candidates.length).to eq(3)
+      expect(candidates.map{|c| c.name}).to eq(['Castor', 'Pollux', 'Helen'])
     end
 
     it "parses the ballots" do
@@ -30,11 +30,11 @@ describe Meekster::BallotFile do
 
       ballots = @bf.ballots
 
-      ballots.length.should == 6
+      expect(ballots.length).to eq(6)
 
       rankings = ballots.map{|b| b.ranking}
-      rankings.grep([candidates[0], candidates[1]]).length.should == 4
-      rankings.grep([candidates[2]]).length.should == 2
+      expect(rankings.grep([candidates[0], candidates[1]]).length).to eq(4)
+      expect(rankings.grep([candidates[2]]).length).to eq(2)
     end
   end
 end
