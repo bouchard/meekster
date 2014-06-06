@@ -101,9 +101,8 @@ describe "meekster" do
       end
 
       it "calculates votes for the rejected candidates correctly" do
-        pending('Need to fix final round') do
-          @election.candidates.find{|c| c.name == 'Pollux'}.votes.should be_within(0.000000001).of(0.000000000)
-        end
+        pending('Need to fix final round')
+        @election.candidates.find{|c| c.name == 'Pollux'}.votes.should be_within(0.000000001).of(0.000000000)
       end
     end
 
